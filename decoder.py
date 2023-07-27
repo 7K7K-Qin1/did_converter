@@ -26,6 +26,9 @@ class PpsLgbDecoder:
     def decode(self, processed_data: List[DidObject]) -> List[dict]:
         result = []
         for data in processed_data:
-            did_str = data.name + "/" + data.flat_number + "/" + data.floor_number + "/"+ data.building_name + "/" + data.area + "/" + data.district + "/" + data.city + "/" + data.country
+            if data.block == "":
+                did_str = data.name + "/" + data.flat_number + "/" + data.floor_number + "/"+ data.building_name + "/" + data.area + "/" + data.district + "/" + data.city + "/" + data.country
+            else:
+                did_str = data.name + "/" + data.flat_number + "/" + data.floor_number + "/" + data.block + "/" + data.building_name + "/" + data.area + "/" + data.district + "/" + data.city + "/" + data.country
             result.append({ "did_str": did_str})
         return result
