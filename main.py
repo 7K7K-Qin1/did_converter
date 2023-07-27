@@ -11,7 +11,6 @@ with open(input_file, "r", newline="") as csvfile:
     for row in csvreader:
         input_data.append(row[0])
 
-    
     username = "Tom"
 
     core = Core()
